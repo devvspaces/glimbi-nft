@@ -205,7 +205,8 @@ def generate_nft(tier):
     for idx, kind_trait in enumerate(selected_traits):
         value = list(kind_trait.values())[0]
         metadata["traits"].append({
-            TRAITS[idx]: value
+            "trait_type": TRAITS[idx],
+            "value": value
         })
     
     return nft_filename, metadata
@@ -213,5 +214,5 @@ def generate_nft(tier):
 
 # Example usage
 if __name__ == "__main__":
-    file, meta = generate_nft("tier1")
+    file, meta = generate_nft("tier4")
     print(file, meta)

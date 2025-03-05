@@ -2,19 +2,35 @@
   "name": "minter",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create-token": "npx tsx scripts/create-token.ts",
+    "mint-tokens": "npx tsx scripts/mint-tokens.ts",
+    "upload": "npx tsx scripts/pinata-upload.ts",
+    "create-collection": "npx tsx scripts/create-metaplex-nft-collection.ts",
+    "create-nft": "npx tsx scripts/create-metaplex-nft.ts",
+    "verify-nft": "npx tsx scripts/verify-metaplex-nft.ts"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@coral-xyz/anchor": "^0.30.1",
     "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
     "@metaplex-foundation/umi": "^1.1.1",
     "@metaplex-foundation/umi-bundle-defaults": "^1.1.1",
     "@metaplex-foundation/umi-uploader-irys": "^1.1.1",
-    "@solana-developers/helpers": "2",
-    "@solana/web3.js": "1",
-    "esrun": "^3.2.26"
+    "@solana-developers/helpers": "^2.8.0",
+    "@solana/spl-token": "^0.4.13",
+    "@solana/web3.js": "^1.98.0",
+    "esrun": "^3.2.26",
+    "pinata-web3": "^0.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
   }
 }

@@ -1,23 +1,24 @@
 import {
+  createNft,
+  mplTokenMetadata,
+} from "@metaplex-foundation/mpl-token-metadata";
+import {
   generateSigner,
   keypairIdentity,
   percentAmount,
+  publicKey as UMIPublicKey,
 } from "@metaplex-foundation/umi";
 import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
+import { irysUploader } from "@metaplex-foundation/umi-uploader-irys";
 import {
   airdropIfRequired,
   getExplorerLink,
   getKeypairFromFile,
 } from "@solana-developers/helpers";
 import { clusterApiUrl, Connection, LAMPORTS_PER_SOL } from "@solana/web3.js";
-import { promises as fs } from "fs";
 import * as path from "path";
-import "dotenv/config";
-import {
-  createNft,
-  mplTokenMetadata,
-} from "@metaplex-foundation/mpl-token-metadata";
 import { uploadFile, uploadJson } from "./utils";
+import "dotenv/config";
 
 async function main() {
   // create a new connection to Solana's devnet cluster
@@ -28,6 +29,7 @@ async function main() {
   // load keypair from local file system
   // assumes that the keypair is already generated using `solana-keygen new`
   const user = await getKeypairFromFile(process.env.KEYPAIR_PATH!);
+  console.log("Loaded user:", user.publicKey.toBase58());
 
   await airdropIfRequired(
     connection,
@@ -36,55 +38,65 @@ async function main() {
     0.1 * LAMPORTS_PER_SOL
   );
 
-  console.log("Loaded user:", user.publicKey.toBase58());
-
   const umi = createUmi(connection);
 
   // convert to umi compatible keypair
   const umiKeypair = umi.eddsa.createKeypairFromSecretKey(user.secretKey);
 
-  // assigns a signer to our umi instance, and loads the MPL metadata program and Irys uploader plugins.
+  // load our plugins and signer
   umi
     .use(keypairIdentity(umiKeypair))
     .use(mplTokenMetadata())
+    .use(irysUploader());
 
-  const collectionImagePath = path.resolve(
-    path.dirname("."),
-    "./assets/collection.png"
+  // Substitute in your collection NFT address from create-metaplex-nft-collection.ts
+  const collectionNftAddress = UMIPublicKey(
+    "4FEmXnCjFFm43RxYDhiUrUVsk6YzsrXG4sHVVhfrrUWK"
   );
-  const image = await uploadFile(collectionImagePath);
+
+  const NFTImagePath = path.resolve(
+    path.dirname("."),
+    "./output/nft_5ae4244543da4bcaa8678a93b53d2ad5.png"
+  );
+  const image = await uploadFile(NFTImagePath);
   console.log("image uri:", image);
+  // upload offchain json using irys and get metadata uri
   const uri = await uploadJson({
-    name: "Glimbi Tales",
+    name: "Glimbi #03",
     symbol: "GT",
-    description:
-      "Glimbi are remarkable beings with unique powers, united in their quest to protect their world from the mysterious dangers that threaten their home.",
+    description: "Glimbi are remarkable beings with unique powers.",
     image,
+    attributes: [
+      { trait_type: "body", value: "Stormcharged Form" },
+      { trait_type: "cloth", value: "Glacial Veil" },
+      { trait_type: "wand", value: "Hawkeye Spear" },
+      { trait_type: "ear", value: "Earthborn Ridge" },
+      { trait_type: "mouth", value: "Frozen Fang" },
+      { trait_type: "eye", value: "Lightning Glare" },
+    ],
   });
-  console.log("Collection offchain metadata URI:", uri);
+  console.log("NFT offchain metadata URI:", uri);
 
   // generate mint keypair
-  const collectionMint = generateSigner(umi);
+  const mint = generateSigner(umi);
 
   // create and mint NFT
   await createNft(umi, {
-    mint: collectionMint,
-    name: "Glimbi Tales",
+    mint,
+    name: "Glimbi Tales #01",
+    symbol: "GT",
     uri,
     updateAuthority: umi.identity.publicKey,
     sellerFeeBasisPoints: percentAmount(0),
-    isCollection: true,
-    isMutable: true,
+    collection: {
+      key: collectionNftAddress,
+      verified: false,
+    },
+    isCollection: false,
   }).sendAndConfirm(umi, { send: { commitment: "finalized" } });
 
-  let explorerLink = getExplorerLink(
-    "address",
-    collectionMint.publicKey,
-    "devnet"
-  );
-  console.log(`Collection NFT:  ${explorerLink}`);
-  console.log(`Collection NFT address is:`, collectionMint.publicKey);
-  console.log("✅ Finished successfully!");
+  let explorerLink = getExplorerLink("address", mint.publicKey, "devnet");
+  console.log(`NFT Mint:  ${explorerLink}`);
 }
 
 main().catch(console.error);
