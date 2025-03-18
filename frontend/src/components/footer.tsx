@@ -32,7 +32,7 @@ export function Footer() {
                 <VStack align={"start"}>
                   <Link href="#">Marketplace</Link>
                   <Link href="#">Litepaper</Link>
-                  <Link href="#">About</Link>
+                  <Link href="/about">About</Link>
                 </VStack>
               </HStack>
             </VStack>
