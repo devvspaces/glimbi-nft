@@ -60,6 +60,15 @@ async function main() {
     description:
       "Glimbi are remarkable beings with unique powers, united in their quest to protect their world from the mysterious dangers that threaten their home.",
     image,
+    properties: {
+      files: [
+        {
+          uri: image,
+          type: 'image/png',
+        },
+      ],
+      category: 'image',
+    },
   });
   console.log("Collection offchain metadata URI:", uri);
 
