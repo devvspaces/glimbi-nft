@@ -6,26 +6,26 @@ import {
   HStack,
   IconButton,
   Image,
-  Link,
+//   Link,
   Text,
   VStack,
 } from "@chakra-ui/react";
 import { BiChevronLeftCircle } from "react-icons/bi";
 
-function NftCard() {
-    return (
-        <VStack>
-            <Box>
-                <Image src="/ui/sample-nft.png"  alt="NFT image" />
-            </Box>
-            <VStack>
-                <Text fontSize={"20px"}>NFT Title</Text>
-                <Heading fontSize={"16px"} fontWeight={'400'}>Owner</Heading>
-                <Text fontSize={"16px"}>Price</Text>
-            </VStack>
-        </VStack>
-    )
-}
+// function NftCard() {
+//     return (
+//         <VStack>
+//             <Box>
+//                 <Image src="/ui/sample-nft.png"  alt="NFT image" />
+//             </Box>
+//             <VStack>
+//                 <Text fontSize={"20px"}>NFT Title</Text>
+//                 <Heading fontSize={"16px"} fontWeight={'400'}>Owner</Heading>
+//                 <Text fontSize={"16px"}>Price</Text>
+//             </VStack>
+//         </VStack>
+//     )
+// }
 
 export default function Home() {
   return (
