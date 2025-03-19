@@ -9,7 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-export default function TeamPage() {
+export default function Glimbi() {
   return (
     <main>
       {/* Hero */}
