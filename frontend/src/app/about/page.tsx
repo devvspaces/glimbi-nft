@@ -14,7 +14,7 @@ function TeamCard() {
         <Heading fontWeight={"400"} fontSize={"24px"}>
           John Doe
         </Heading>
-        <Text fontSize={"24px"}>Developer</Text>
+        <Text fontSize={"16px"}>Developer</Text>
       </VStack>
     </VStack>
   );

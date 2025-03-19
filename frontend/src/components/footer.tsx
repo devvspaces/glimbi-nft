@@ -26,7 +26,7 @@ export function Footer() {
               <HStack opacity={".5"} gap={"24px"}>
                 <VStack align={"start"}>
                   <Link href="#">Game Features</Link>
-                  <Link href="#">Glimbi</Link>
+                  <Link href="/glimbi">Glimbi</Link>
                   <Link href="#">Token</Link>
                 </VStack>
                 <VStack align={"start"}>
