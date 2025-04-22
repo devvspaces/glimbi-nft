@@ -1,9 +1,8 @@
+import { Footer } from "@/components/footer";
 import type { Metadata } from "next";
+import { inika, irish } from "./fonts";
 import "./globals.css";
 import { Providers } from "./providers";
-import Navbar from "@/components/nav";
-import { inika, irish } from "./fonts";
-import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Glimbi Tales",
@@ -25,7 +24,6 @@ export default function RootLayout({
         className={`${irish.className} ${inika.className}`}
       >
         <Providers>
-          <Navbar />
           {children}
           <Footer />
         </Providers>
