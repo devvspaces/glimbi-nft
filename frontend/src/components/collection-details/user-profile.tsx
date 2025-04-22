@@ -3,7 +3,11 @@ import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 export const UserProfile = () => {
   return (
     <VStack mr={"auto"}>
-      <Text mr={"auto"} fontSize={'24px'} fontWeight={500}>
+      <Text
+        mr={"auto"}
+        fontSize={{ base: "16px", sm: "24px" }}
+        fontWeight={500}
+      >
         OWNER
       </Text>
       <HStack>

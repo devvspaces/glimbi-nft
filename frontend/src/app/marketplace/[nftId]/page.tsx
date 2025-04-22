@@ -16,6 +16,7 @@ const NFTDetailsPage = async ({ params }: PageProps) => {
         <Stack
           direction={{ base: "column", md: "row" }}
           align={{ base: "stretch", md: "flex-start" }}
+          justify={"center"}
           gap={10}
           py="100px"
           width={"100%"}

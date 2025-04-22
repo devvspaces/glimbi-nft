@@ -1,4 +1,4 @@
-import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 
 export const NFTOffers = () => {
@@ -11,9 +11,13 @@ export const NFTOffers = () => {
       borderRadius={"3xl"}
       p={"10px"}
     >
-      <HStack justify={"space-between"}>
+      <Stack
+        direction={{ base: "column", sm: "row" }}
+        justify={"space-between"}
+        align={"center"}
+      >
         <Box>
-          <Text mr={"auto"} fontSize={"24px"} fontWeight={500}>
+          <Text mr={"auto"} fontSize={{base: "16px", sm: "24px"}} fontWeight={500}>
             HIGHEST OFFER
           </Text>
           <VStack mr={"auto"}>
@@ -38,7 +42,7 @@ export const NFTOffers = () => {
             </Text>
             <HStack mr={"auto"} spacing={1} justify={"start"}>
               <Text>by</Text>
-              <Text fontSize={"18px"} textColor={"white"}>
+              <Text fontSize={{base: "15px",sm: '18px'}} textColor={"white"}>
                 Johndoe
               </Text>
               <Text>(0x7A3b...6D2C)</Text>
@@ -46,7 +50,7 @@ export const NFTOffers = () => {
           </VStack>
         </Box>
         <Text textColor={"blue"}>View all</Text>
-      </HStack>
+      </Stack>
     </Box>
   );
 };

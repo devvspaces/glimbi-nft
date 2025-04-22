@@ -20,16 +20,25 @@ export const NFTIdNavbar = ({ nftId }: NFTIdNavbarProps) => {
           bg="transparent"
           border="2px solid gray"
           borderRadius="full"
-          color={'white'}
+          color={"white"}
           p={2}
           fontSize={"50px"}
           icon={<ChevronLeft size={25} fill="gray" />}
           aria-label="Back"
         />
-        <Heading fontWeight={"400"} fontSize={"16px"}>
+        <Heading
+          display={{ base: "none", sm: "flex" }}
+          fontWeight={"400"}
+          fontSize={"16px"}
+        >
           Marketplace
         </Heading>
-        <Text fontWeight={800} fontSize={"20px"} textColor={"white"}>
+        <Text
+          display={{ base: "none", sm: "flex" }}
+          fontWeight={800}
+          fontSize={"20px"}
+          textColor={"white"}
+        >
           /{nftId}
         </Text>
       </HStack>

@@ -6,13 +6,20 @@ import {
   InputLeftElement,
   Select,
   Text,
-  VStack
+  VStack,
 } from "@chakra-ui/react";
 import { SearchIcon } from "lucide-react";
 
 export const MarketFilter = () => {
   return (
-    <Box bg="#000" p={4} color="white" w="100%" maxW="240px">
+    <Box
+      bg="#000"
+      p={4}
+      color="white"
+      w="100%"
+      maxW="240px"
+      display={{ base: "none", sm: "flex" }}
+    >
       <VStack align="stretch" spacing={4}>
         {/* Search Input */}
         <InputGroup>
@@ -125,13 +132,13 @@ export const MarketFilter = () => {
             </Select>
           </Box>
         </VStack>
+        <Image
+          cursor={"pointer"}
+          alt="Connect wallet"
+          mt={"15px"}
+          src="/ui/apply-filter.svg"
+        />
       </VStack>
-      <Image
-        cursor={"pointer"}
-        alt="Connect wallet"
-        mt={"15px"}
-        src="/ui/apply-filter.svg"
-      />
     </Box>
   );
 };

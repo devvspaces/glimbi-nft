@@ -1,9 +1,9 @@
-import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 
 export const CurrentPrice = () => {
   return (
-    <VStack mr={"auto"}>
-      <Text mr={"auto"} fontSize={"24px"} fontWeight={500}>
+    <VStack mr={"auto"} mt={10}>
+      <Text mr={"auto"} fontSize={{base: "16px", sm:"24px"}} fontWeight={500}>
         CURRENT PRICE
       </Text>
       <VStack mr={"auto"}>
@@ -21,7 +21,14 @@ export const CurrentPrice = () => {
             $20.00
           </Text>
         </HStack>
-        <HStack spacing={5} my={8}>
+
+        <Stack
+          direction={{ base: "column", sm: "row" }}
+          justify={"center"}
+          align={"center"}
+          spacing={5}
+          my={8}
+        >
           <Image
             cursor={"pointer"}
             alt="Connect wallet"
@@ -32,7 +39,7 @@ export const CurrentPrice = () => {
             alt="Connect wallet"
             src="/ui/make-offer.svg"
           />
-        </HStack>
+        </Stack>
       </VStack>
     </VStack>
   );
