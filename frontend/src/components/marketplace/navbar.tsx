@@ -20,7 +20,7 @@ export const MarketplaceNavbar = () => {
           icon={<ChevronLeft size={25} fill="gray" />}
           aria-label="Back"
         />
-        <Heading fontWeight={"400"} fontSize={"16px"}>
+        <Heading fontWeight={"400"} fontSize={"16px"} display={{base: "none", sm:'flex'}}>
           Marketplace
         </Heading>
       </HStack>

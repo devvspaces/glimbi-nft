@@ -10,12 +10,12 @@ interface NFTIdProfileProps {
 
 export const NFTIdProfile = ({ nftId }: NFTIdProfileProps) => {
   return (
-    <Box w={"100%"} maxW={"449px"} py={"20px"} bg={'black'} px={'10px'}>
+    <Box w={"100%"} maxW={"449px"} py={"20px"} bg={"black"} px={"10px"}>
       <Box mb={5}>
         <Image w={"100%"} alt="Gameplay" src="/ui/white-bg.svg" />
       </Box>
       <VStack spacing={3}>
-        <Text mr={"auto"} fontSize={"32px"}>
+        <Text mr={"auto"} fontSize={{ base: "24px", sm: "32px" }}>
           Glimbi Cart
         </Text>
         <HStack mr={"auto"}>
