@@ -17,6 +17,10 @@ import { Link } from "@chakra-ui/next-js";
 
 const navLinks = [
   {
+    label: "Home",
+    href: "/",
+  },
+  {
     label: "Marketplace",
     href: "/marketplace",
   },
@@ -41,7 +45,7 @@ export default function Navbar() {
       <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
         <DrawerOverlay />
         <DrawerContent bg={"#000000c7"} backdropFilter="blur(10px)">
-          <DrawerCloseButton color={"#FFEF00"} />
+          <DrawerCloseButton color={"#14112A"} />
           <DrawerBody>
             <VStack align="start" spacing={"2.5rem"} pt={"2rem"}>
               <VStack align="start" spacing="24px">
@@ -111,9 +115,9 @@ export default function Navbar() {
             </HStack>
           </HStack>
           <IconButton
-            rounded={"3xl"}
+            rounded={"md"}
             bgImage="linear-gradient(0deg, rgba(250, 250, 250, 0.01) 0%, rgba(250, 250, 250, 0.01) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0.01) -33.08%, rgba(255, 255, 255, 0.00) 135.74%) !important"
-            bgColor="rgba(199, 186, 4, 0.65) !important"
+            bgColor="#14112A"
             display={{ base: "flex", lg: "none" }}
             aria-label=""
             icon={<MenuIcon size={"24px"} color="#F3F3F3" />}

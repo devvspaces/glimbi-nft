@@ -1,8 +1,9 @@
-import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import { UserProfile } from "./user-profile";
 import { CurrentPrice } from "./current-price";
 import { NFTOffers } from "./nft-offers";
+import { aldrichVariable } from "@/app/fonts";
 
 interface NFTIdProfileProps {
   nftId: string;
@@ -10,24 +11,57 @@ interface NFTIdProfileProps {
 
 export const NFTIdProfile = ({ nftId }: NFTIdProfileProps) => {
   return (
-    <Box w={"100%"} maxW={"449px"} py={"20px"} bg={"black"} px={"10px"}>
-      <Box mb={5}>
-        <Image w={"100%"} alt="Gameplay" src="/ui/white-bg.svg" />
+    <Stack
+      w={"100%"}
+      maxW={"500px"}
+      bg={"#14112A"}
+      rounded={"20px"}
+      border={"1px solid #393275"}
+      p={"24px"}
+      gap={"24px"}
+    >
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <Image w={"80%"} alt="Gameplay" src="/Sniper 3.svg" />
       </Box>
-      <VStack spacing={3}>
-        <Text mr={"auto"} fontSize={{ base: "24px", sm: "32px" }}>
+      <Stack gap={"8px"}>
+        <Heading fontSize={"2rem"} color={"white"}>
           Glimbi Cart
-        </Text>
-        <HStack mr={"auto"}>
-          <Image src="/nft-bottle.svg" alt="bottle" h={30} w={30} />
-          <Text fontWeight={400} fontSize={"28px"} textColor={"white"}>
+        </Heading>
+        <HStack
+          w={"fit-content"}
+          p={"2px 8px"}
+          rounded={"full"}
+          bg={"#1E1A3F"}
+          gap={"4px"}
+        >
+          <Image src="/nft-bottle.svg" alt="bottle" h={"15px"} w={"15px"} />
+          <Text
+            fontFamily={aldrichVariable}
+            fontWeight={400}
+            fontSize={"12px"}
+            textColor={"white"}
+          >
             {nftId}
           </Text>
         </HStack>
-        <UserProfile />
-        <CurrentPrice />
-        <NFTOffers />
-      </VStack>
-    </Box>
+      </Stack>
+      <UserProfile />
+      <CurrentPrice />
+      <HStack
+        flexWrap={'wrap'}
+        justify={'space-between'}
+        align={"center"}
+        spacing={'20px'}
+      >
+        <Image w={'45%'} cursor={"pointer"} alt="Connect wallet" src="/ui/buy-now.svg" />
+        <Image
+         w={'45%'}
+          cursor={"pointer"}
+          alt="Connect wallet"
+          src="/ui/make-offer.svg"
+        />
+      </HStack>
+      <NFTOffers />
+    </Stack>
   );
 };

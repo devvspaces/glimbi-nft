@@ -1,46 +1,39 @@
-import { HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { aldrichVariable } from "@/app/fonts";
+import { Heading, HStack, Image, Stack, Text } from "@chakra-ui/react";
 
 export const CurrentPrice = () => {
   return (
-    <VStack mr={"auto"} mt={10}>
-      <Text mr={"auto"} fontSize={{base: "16px", sm:"24px"}} fontWeight={500}>
+    <Stack gap={"0px"}>
+      <Text
+        fontSize={"1rem"}
+        fontFamily={aldrichVariable}
+        color={"#CECCD6"}
+        lineHeight={"160%"}
+      >
         CURRENT PRICE
       </Text>
-      <VStack mr={"auto"}>
-        <HStack
-          gap={"10px"}
-          mr={"auto"}
-          alignItems={"center"}
-          justify={"center"}
-        >
+      <Stack mr={"auto"}>
+        <HStack gap={"4px"} alignItems={"center"}>
           <Image src={"/ui/token.png"} alt="mint" width={30} height={30} />
-          <Text fontWeight={400} fontSize={"30px"} textColor={"white"}>
+          <Heading
+            fontWeight={400}
+            lineHeight={"160%"}
+            fontSize={"24px"}
+            color={"white"}
+          >
             120
-          </Text>
-          <Text fontWeight={500} fontSize={"20px"} textColor={"#CECCD6"}>
+          </Heading>
+          <Text
+            fontFamily={aldrichVariable}
+            color={"#CECCD6"}
+            ml={"1rem"}
+            fontWeight={500}
+            fontSize={"12px"}
+          >
             $20.00
           </Text>
         </HStack>
-
-        <Stack
-          direction={{ base: "column", sm: "row" }}
-          justify={"center"}
-          align={"center"}
-          spacing={5}
-          my={8}
-        >
-          <Image
-            cursor={"pointer"}
-            alt="Connect wallet"
-            src="/ui/buy-now.svg"
-          />
-          <Image
-            cursor={"pointer"}
-            alt="Connect wallet"
-            src="/ui/make-offer.svg"
-          />
-        </Stack>
-      </VStack>
-    </VStack>
+      </Stack>
+    </Stack>
   );
 };

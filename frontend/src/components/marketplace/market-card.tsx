@@ -10,8 +10,8 @@ interface MarketCardProps {
 export const MarketCard = ({ label, amount, imageUrl }: MarketCardProps) => {
   return (
     <Box
-      w={"220px"}
-      h={"102px"}
+      w={"100%"}
+      maxW={"250px"}
       border={"2px"}
       p={"5px"}
       borderRadius={"2xl"}

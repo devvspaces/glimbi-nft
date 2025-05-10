@@ -13,12 +13,13 @@ import { SearchIcon } from "lucide-react";
 export const MarketFilter = () => {
   return (
     <Box
-      bg="#000"
+      bg="#14112A"
       p={4}
       color="white"
       w="100%"
       maxW="240px"
       display={{ base: "none", sm: "flex" }}
+      rounded={"xl"}
     >
       <VStack align="stretch" spacing={4}>
         {/* Search Input */}
@@ -27,19 +28,16 @@ export const MarketFilter = () => {
             <SearchIcon color="white" />
           </InputLeftElement>
           <Input
+            rounded={"full"}
             type="text"
             placeholder="Search"
-            bg="#111"
+            bg="#14112A"
             pl={"50px"}
             borderColor="#333"
             _placeholder={{ color: "gray.400" }}
           />
         </InputGroup>
 
-        {/* Filter Title */}
-        <Text fontWeight="bold" fontSize="sm" color="gray.300">
-          FILTER
-        </Text>
         <VStack spacing={"20px"}>
           <Box w="100%">
             <Text py={"10px"} ml={"5px"}>
@@ -47,9 +45,10 @@ export const MarketFilter = () => {
             </Text>
             <Select
               placeholder="Choose"
-              bg="#111"
+              bg="#14112A"
               borderColor="#333"
               color="white"
+              rounded={"full"}
             >
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
@@ -62,9 +61,10 @@ export const MarketFilter = () => {
             </Text>
             <Select
               placeholder="Choose part"
-              bg="#111"
+              bg="#14112A"
               borderColor="#333"
               color="white"
+              rounded={"full"}
             >
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
@@ -77,9 +77,10 @@ export const MarketFilter = () => {
             </Text>
             <Select
               placeholder="Choose"
-              bg="#111"
+              bg="#14112A"
               borderColor="#333"
               color="white"
+              rounded={"full"}
             >
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
@@ -92,9 +93,10 @@ export const MarketFilter = () => {
             </Text>
             <Select
               placeholder="Choose"
-              bg="#111"
+              bg="#14112A"
               borderColor="#333"
               color="white"
+              rounded={"full"}
             >
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
@@ -107,9 +109,10 @@ export const MarketFilter = () => {
             </Text>
             <Select
               placeholder="Choose"
-              bg="#111"
+              bg="#14112A"
               borderColor="#333"
               color="white"
+              rounded={"full"}
             >
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
@@ -122,9 +125,10 @@ export const MarketFilter = () => {
             </Text>
             <Select
               placeholder="Choose"
-              bg="#111"
+              bg="#14112A"
               borderColor="#333"
               color="white"
+              rounded={"full"}
             >
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>

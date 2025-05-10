@@ -1,56 +1,70 @@
-import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { aldrichVariable, irishVariable } from "@/app/fonts";
+import { Box, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const NFTOffers = () => {
   return (
     <Box
-      mr={"auto"}
       bg={"#1E1A3F"}
-      border={"2px solid #1E1A3F"}
       w={"100%"}
-      borderRadius={"3xl"}
-      p={"10px"}
+      borderRadius={"2xl"}
+      p={"16px"}
+      border={"1px solid #393275"}
     >
-      <Stack
-        direction={{ base: "column", sm: "row" }}
-        justify={"space-between"}
-        align={"center"}
-      >
-        <Box>
-          <Text mr={"auto"} fontSize={{base: "16px", sm: "24px"}} fontWeight={500}>
+      <HStack justify={"space-between"} align={"center"} flexWrap={"wrap"}>
+        <Stack gap={"8px"}>
+          <Text
+            mr={"auto"}
+            fontSize={"1rem"}
+            fontWeight={500}
+            fontFamily={aldrichVariable}
+          >
             HIGHEST OFFER
           </Text>
-          <VStack mr={"auto"}>
-            <HStack
-              gap={"10px"}
-              mr={"auto"}
-              alignItems={"center"}
-              justify={"center"}
-            >
+          <Stack>
+            <HStack gap={"10px"} alignItems={"center"}>
               <Image src={"/ui/token.png"} alt="mint" width={30} height={30} />
-              <Text fontWeight={400} fontSize={"30px"} textColor={"white"}>
+              <Text
+                fontFamily={irishVariable}
+                fontWeight={400}
+                fontSize={"1.2rem"}
+                textColor={"white"}
+              >
                 4.22
               </Text>
             </HStack>
             <Text
               fontWeight={500}
-              fontSize={"20px"}
-              mr={"auto"}
+              fontSize={"12px"}
               textColor={"#CECCD6"}
+              fontFamily={aldrichVariable}
+              lineHeight={"160%"}
             >
               $20.00
             </Text>
-            <HStack mr={"auto"} spacing={1} justify={"start"}>
-              <Text>by</Text>
-              <Text fontSize={{base: "15px",sm: '18px'}} textColor={"white"}>
+            <HStack spacing={1} alignItems={"center"}>
+              <Text
+                fontFamily={aldrichVariable}
+                fontSize={"12px"}
+                textColor={"#CECCD6"}
+              >
+                by
+              </Text>
+              <Text fontSize={"14px"} textColor={"white"}>
                 Johndoe
               </Text>
-              <Text>(0x7A3b...6D2C)</Text>
+              <Text
+                fontSize={"12px"}
+                textColor={"#CECCD6"}
+                fontFamily={aldrichVariable}
+              >
+                (0x7A3b...6D2C)
+              </Text>
             </HStack>
-          </VStack>
-        </Box>
+          </Stack>
+        </Stack>
         <Text textColor={"blue"}>View all</Text>
-      </Stack>
+      </HStack>
     </Box>
   );
 };

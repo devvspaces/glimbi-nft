@@ -1,22 +1,26 @@
-import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+import { aldrichVariable } from "@/app/fonts";
+import { Box, HStack, Text, Stack } from "@chakra-ui/react";
 
 export const UserProfile = () => {
   return (
-    <VStack mr={"auto"}>
+    <Stack gap={"8px"}>
       <Text
-        mr={"auto"}
-        fontSize={{ base: "16px", sm: "24px" }}
-        fontWeight={500}
+        fontSize={"1rem"}
+        fontFamily={aldrichVariable}
+        color={"#CECCD6"}
+        lineHeight={"160%"}
       >
         OWNER
       </Text>
-      <HStack>
+      <HStack gap={"8px"} alignItems={"center"}>
         <Box width={50} height={50} bg={"gray.400"} borderRadius={"full"}></Box>
-        <VStack>
-          <Text mr={"auto"}>Johndoe</Text>
-          <Text mr={"auto"}>0x7A3b...6D2C</Text>
-        </VStack>
+        <Stack>
+          <Text fontSize={"14px"}>Johndoe</Text>
+          <Text fontSize={'12px'} fontFamily={aldrichVariable} color={"#CECCD6"}>
+            0x7A3b6D2C6D2C6D2C6D2C
+          </Text>
+        </Stack>
       </HStack>
-    </VStack>
+    </Stack>
   );
 };

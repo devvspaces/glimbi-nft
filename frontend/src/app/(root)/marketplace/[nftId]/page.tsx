@@ -1,4 +1,3 @@
-import { NFTIdNavbar } from "@/components/collection-details/nftId-navbar";
 import { NFTIdProfile } from "@/components/collection-details/nftId-profile";
 import { NFTIdSettings } from "@/components/collection-details/nftId-settings";
 import { CONTAINER_MAX_WIDTH } from "@/helper/constants";
@@ -11,14 +10,13 @@ const NFTDetailsPage = async ({ params }: PageProps) => {
   const { nftId } = await params;
   return (
     <Container maxW={CONTAINER_MAX_WIDTH}>
-      <NFTIdNavbar nftId={nftId} />
-      <Center alignItems={"start"} gap={10} py={"100px"}>
+      <Center alignItems={"start"} gap={10}>
         <Stack
           direction={{ base: "column", md: "row" }}
           align={{ base: "stretch", md: "flex-start" }}
           justify={"center"}
-          gap={10}
-          py="100px"
+          gap={"2rem"}
+          py="2rem"
           width={"100%"}
         >
           <NFTIdSettings />
