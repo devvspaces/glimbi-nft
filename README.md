@@ -1,6 +1,12 @@
 # glimbi-nft
 
 
+Tier 4 -> 290
+Tier 3 -> 690
+Tier 2 -> 1490
+Tier 1 -> 2490
+
+
 ```js
 [
   {

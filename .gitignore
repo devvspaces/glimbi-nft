@@ -312,3 +312,9 @@ cython_debug/
 .pypirc
 
 */output/*.png
+
+output/
+failures.json
+uploads.json
+generator_state.json
+generator_state_backup.json
