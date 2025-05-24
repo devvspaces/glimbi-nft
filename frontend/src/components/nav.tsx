@@ -14,6 +14,7 @@ import { CONTAINER_MAX_WIDTH } from "@/helper/constants";
 import { Box, Button, Container, HStack, Image } from "@chakra-ui/react";
 import { MenuIcon } from "lucide-react";
 import { Link } from "@chakra-ui/next-js";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const navLinks = [
   {
@@ -63,6 +64,9 @@ export default function Navbar() {
                     {link.label}
                   </Link>
                 ))}
+                <Box>
+                  <WalletMultiButton />
+                </Box>
               </VStack>
             </VStack>
           </DrawerBody>
@@ -99,6 +103,9 @@ export default function Navbar() {
               </HStack>
             </Box>
             <HStack spacing={4} display={{ base: "none", sm: "flex" }}>
+              <Box>
+                <WalletMultiButton />
+              </Box>
               <Button bg={"transparent !important"}>
                 <Image
                   display={"block"}

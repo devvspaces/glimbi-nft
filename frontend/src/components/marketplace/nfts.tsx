@@ -1,23 +1,37 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { NftCard } from "./nft-card";
 
 const nfts = [
   {
-    id: "47673899",
+    id: "Unknown",
     imageUrl: "/Sniper 3.svg",
-    label: "Glimbi Cart",
+    label: "Glimbi Tales",
     coin: 2000087,
     price: 40,
     rating: 4.5,
   },
 ];
 
-export const NFTS = () => {
+export const NFTS = ({
+  mint,
+  isLoading,
+  isAllowed,
+}: {
+  mint?: () => void;
+  isLoading: boolean;
+  isAllowed: boolean;
+}) => {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4}>
+    <Flex align="center" justify="center" gap={4} wrap="wrap" w="100%">
       {nfts.map((item, index) => (
-        <NftCard key={index} {...item} />
+        <NftCard
+          key={index}
+          {...item}
+          mint={mint}
+          isLoading={isLoading}
+          isAllowed={isAllowed}
+        />
       ))}
-    </SimpleGrid>
+    </Flex>
   );
 };
